@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TheWave — Join the waitlist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #ffffff;
+    color: #0a0a0a;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .heading { font-family: 'Syne', sans-serif; font-weight: 800; }
+  .heading-bold { font-family: 'Syne', sans-serif; font-weight: 700; }
+  a { text-decoration: none; }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .nav-logo { font-size: 18px; letter-spacing: -0.02em; color: #0a0a0a; }
+  .nav-logo span { color: #6B8E1F; }
+  .nav-btn {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: transparent;
+    color: #0a0a0a;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .nav-btn:hover { border-color: #6B8E1F; }
+
+  .hero {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 56px 24px 72px;
+    text-align: center;
+  }
+  @media (min-width: 640px) {
+    .hero { padding: 80px 40px 88px; }
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #f3f6ea;
+    color: #4a6315;
+    border: 1px solid #dde8c4;
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: 2.1rem;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #0a0a0a;
+  }
+  @media (min-width: 640px) {
+    .hero h1 { font-size: 3rem; }
+  }
+  .hero h1 .accent { color: #6B8E1F; }
+  .hero p {
+    font-size: 16px;
+    color: #555555;
+    line-height: 1.7;
+    max-width: 580px;
+    margin: 0 auto 16px;
+  }
+  .hero p.lead {
+    font-size: 17px;
+    color: #333333;
+    font-weight: 500;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 28px;
+    background: #0a0a0a;
+    color: #ffffff;
+    border-radius: 12px;
+    font-weight: 700;
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 28px;
+  }
+  .cta-btn:hover { background: #2a2a2a; }
+  .cta-sub { font-size: 12px; color: #999999; margin-top: 16px; }
+
+  .scan-strip {
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+    background: #fafafa;
+  }
+  .scan-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+  }
+  @media (min-width: 768px) {
+    .scan-inner { grid-template-columns: repeat(4, 1fr); }
+  }
+  .scan-item .scan-emoji { font-size: 22px; margin-bottom: 8px; }
+  .scan-item .scan-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px; color: #0a0a0a; margin-bottom: 4px; }
+  .scan-item .scan-desc { font-size: 12px; color: #777777; line-height: 1.5; }
+
+  .together { background: #ffffff; }
+  .together-inner { max-width: 900px; margin: 0 auto; padding: 64px 24px; }
+  @media (min-width: 640px) { .together-inner { padding: 80px 40px; } }
+  .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .section-title .label { color: #6B8E1F; font-size: 13px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 8px; }
+  .section-title h2 { font-size: 1.6rem; letter-spacing: -0.02em; color: #0a0a0a; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  @media (min-width: 640px) { .grid-2 { grid-template-columns: 1fr 1fr; gap: 16px; } }
+  .feature-card {
+    border: 1px solid #ececec;
+    border-radius: 16px;
+    padding: 22px;
+  }
+  .feature-card .feature-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; margin-bottom: 6px; color: #0a0a0a; }
+  .feature-card .feature-desc { font-size: 13.5px; color: #666666; line-height: 1.6; }
+
+  .quote-section { background: #fafafa; border-top: 1px solid #eeeeee; }
+  .quote-inner { max-width: 700px; margin: 0 auto; padding: 56px 24px; text-align: center; }
+  .quote-text { font-size: 17px; color: #333333; line-height: 1.7; font-family: 'Syne', sans-serif; font-weight: 700; letter-spacing: -0.01em; }
+  .quote-attr { font-size: 12px; color: #6B8E1F; font-weight: 600; margin-top: 16px; }
+
+  .form-section { max-width: 560px; margin: 0 auto; padding: 64px 24px 80px; }
+  @media (min-width: 640px) { .form-section { padding: 80px 40px; } }
+  .form-header { text-align: center; margin-bottom: 32px; }
+  .form-header h2 { font-size: 1.6rem; letter-spacing: -0.02em; margin-bottom: 8px; color: #0a0a0a; }
+  .form-header p { font-size: 14px; color: #777777; }
+  .field { margin-bottom: 16px; }
+  .field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #555555;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 6px;
+  }
+  .field label .optional { color: #aaaaaa; text-transform: none; font-weight: 400; }
+  .field input, .field textarea {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    padding: 13px 16px;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    color: #0a0a0a;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .field input::placeholder, .field textarea::placeholder { color: #aaaaaa; }
+  .field input:focus, .field textarea:focus { border-color: #6B8E1F; }
+  .field textarea { resize: none; line-height: 1.6; }
+  .submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: #0a0a0a;
+    color: #ffffff;
+    border-radius: 12px;
+    font-weight: 700;
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+  }
+  .submit-btn:hover { background: #2a2a2a; }
+  .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .error-box {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .confirm-screen { min-height: 100vh; display: none; align-items: center; justify-content: center; padding: 24px; }
+  .confirm-screen.active { display: flex; }
+  .confirm-box { max-width: 480px; text-align: center; }
+  .confirm-icon {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: rgba(107,142,31,0.1);
+    border: 1px solid rgba(107,142,31,0.3);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px; font-size: 24px; color: #6B8E1F;
+  }
+  .confirm-box h1 { font-size: 1.9rem; letter-spacing: -0.02em; margin-bottom: 12px; color: #0a0a0a; }
+  .confirm-box p { font-size: 14px; color: #666666; line-height: 1.7; margin-bottom: 32px; }
+  .wa-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 24px; background: #0a0a0a; color: #ffffff;
+    border-radius: 12px; font-weight: 700; font-size: 14px;
+  }
+  .countdown { font-size: 12px; color: #999999; margin-top: 20px; }
+
+  .main-content { display: block; }
+  .main-content.hidden { display: none; }
+
+  footer { border-top: 1px solid #eeeeee; padding: 32px 24px; text-align: center; font-size: 12px; color: #aaaaaa; }
+</style>
+</head>
+<body>
+
+<div id="mainContent" class="main-content">
+
+  <div class="nav">
+    <div class="nav-logo heading-bold">The<span>Wave</span></div>
+    <button class="nav-btn" onclick="scrollToForm()">Join waitlist</button>
+  </div>
+
+  <div class="hero">
+    <div class="pill">🌊 AI Automation Community · Nigeria</div>
+
+    <h1 class="heading">
+      Learn AI automation<br>
+      <span class="accent">with people, not alone.</span>
+    </h1>
+
+    <p class="lead">
+      TheWave is a community where you learn automation, get good at sales, and build
+      real income — alongside people doing the exact same thing.
+    </p>
+    <p>
+      Courses on automation and sales, with more being added over time (vibecoding is next).
+      A community to ask questions, share wins, and find collaborators. Job leads I can't
+      take on alone, passed to people inside. And a place to figure out how to turn this
+      into your own agency — not just a skill you learned and never used.
+    </p>
+
+    <button class="cta-btn" onclick="scrollToForm()">
+      Join the waitlist
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+    <div class="cta-sub">Spots are limited while we onboard in batches.</div>
+  </div>
+
+  <div class="scan-strip">
+    <div class="scan-inner">
+      <div class="scan-item">
+        <div class="scan-emoji">⚡</div>
+        <div class="scan-title">Automation + Sales</div>
+        <div class="scan-desc">Courses on both — not just the tech, the part that makes money too</div>
+      </div>
+      <div class="scan-item">
+        <div class="scan-emoji">💻</div>
+        <div class="scan-title">More courses coming</div>
+        <div class="scan-desc">Vibecoding and others on the way as the community grows</div>
+      </div>
+      <div class="scan-item">
+        <div class="scan-emoji">🤝</div>
+        <div class="scan-title">Find your people</div>
+        <div class="scan-desc">Connect with others building the same kind of thing as you</div>
+      </div>
+      <div class="scan-item">
+        <div class="scan-emoji">🏢</div>
+        <div class="scan-title">Build an agency</div>
+        <div class="scan-desc">Go beyond freelancing — figure out the agency path together</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="together">
+    <div class="together-inner">
+      <div class="section-title">
+        <div class="label">What's inside</div>
+        <h2 class="heading">Everything you need, none of it alone</h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="feature-card">
+          <div class="feature-title">Structured courses</div>
+          <div class="feature-desc">Real automation builds, broken into courses and modules you actually finish — not another bookmarked tutorial.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-title">Sales, not just tech</div>
+          <div class="feature-desc">Knowing automation isn't enough. Learn how to sell it, price it, and land the client.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-title">A community that answers</div>
+          <div class="feature-desc">Stuck at 2am with no one to ask? Post it here. Someone who's been through it will reply.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-title">Job leads, passed on</div>
+          <div class="feature-desc">Work I can't take on alone gets passed to people in the community who can.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-title">Growing course library</div>
+          <div class="feature-desc">Vibecoding and more courses are coming as the community and the curriculum grow together.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-title">From skill to agency</div>
+          <div class="feature-desc">For people who want to go further than freelance gigs — figure out the agency path with others doing it too.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-section">
+    <div class="quote-inner">
+      <div class="quote-text">
+        "I'd rather build this with people stuck on the same problems as me, than watch
+        a polished video where everything just works. That's not how it actually goes."
+      </div>
+      <div class="quote-attr">— why TheWave exists</div>
+    </div>
+  </div>
+
+  <div class="form-section" id="formSection">
+    <div class="form-header">
+      <h2 class="heading">Join the waitlist</h2>
+      <p>Tell us a bit about you — this helps us build the right thing.</p>
+    </div>
+
+    <div id="errorBox" class="error-box" style="display:none;"></div>
+
+    <div class="field">
+      <label>Name</label>
+      <input type="text" id="fName" placeholder="Your full name">
+    </div>
+    <div class="field">
+      <label>WhatsApp number</label>
+      <input type="text" id="fWhatsapp" placeholder="e.g. 0803 123 4567">
+    </div>
+    <div class="field">
+      <label>Instagram / TikTok handle <span class="optional">(optional)</span></label>
+      <input type="text" id="fInstagram" placeholder="@yourhandle">
+    </div>
+    <div class="field">
+      <label>What do you want automation for?</label>
+      <textarea id="fAutomationGoal" rows="3" placeholder="e.g. I want to automate lead gen for my agency, or build automations as a service for clients..."></textarea>
+    </div>
+
+    <button class="submit-btn" id="submitBtn" onclick="handleSubmit()">Join the waitlist</button>
+  </div>
+
+  <footer>TheWave Nigeria · AI automation, learned together 🌊</footer>
+
+</div>
+
+<div id="confirmScreen" class="confirm-screen">
+  <div class="confirm-box">
+    <div class="confirm-icon">✓</div>
+    <h1 class="heading">You're on the list.</h1>
+    <p>
+      We read every submission. While we get the full platform ready for you,
+      come say hello in the WhatsApp community — that's where things are happening right now.
+    </p>
+    <a href="https://chat.whatsapp.com/Jwf02yYzsh1A2miAjFOEeo" class="wa-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4a8.94 8.94 0 0 0-7.74 13.4L3 21l3.79-1.27a8.93 8.93 0 0 0 5.27 1.7h.01a8.93 8.93 0 0 0 8.93-8.92 8.83 8.83 0 0 0-3.4-6.19zM12.07 19.7a7.4 7.4 0 0 1-3.79-1.04l-.27-.16-2.82.93.94-2.75-.18-.28a7.42 7.42 0 0 1 6.17-11.5 7.4 7.4 0 0 1 7.4 7.43 7.41 7.41 0 0 1-7.45 7.37z"/></svg>
+      Join the WhatsApp community
+    </a>
+    <div class="countdown" id="countdownText">Taking you there automatically in 6s...</div>
+  </div>
+</div>
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+<script>
+  const WHATSAPP_LINK = "https://chat.whatsapp.com/Jwf02yYzsh1A2miAjFOEeo";
+  const GOOGLE_FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSfENTFpaqJwZHluOQE-U7PMwLjSoDNHrGy7JS_fpKgBSCdglg/formResponse";
+
+  function scrollToForm() {
+    document.getElementById('formSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function showError(msg) {
+    const box = document.getElementById('errorBox');
+    box.textContent = msg;
+    box.style.display = 'block';
+  }
+
+  function hideError() {
+    document.getElementById('errorBox').style.display = 'none';
+  }
+
+  function handleSubmit() {
+    hideError();
+
+    const name = document.getElementById('fName').value.trim();
+    const whatsapp = document.getElementById('fWhatsapp').value.trim();
+    const instagram = document.getElementById('fInstagram').value.trim();
+    const automationGoal = document.getElementById('fAutomationGoal').value.trim();
+
+    if (!name || !whatsapp || !automationGoal) {
+      showError('Please fill in your name, WhatsApp number, and what you want automation for.');
+      return;
+    }
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Joining...';
+
+    const form = document.createElement('form');
+    form.action = GOOGLE_FORM_ACTION;
+    form.method = 'POST';
+    form.target = 'hidden_iframe';
+
+    const fields = {
+      'entry.974812318': name,
+      'entry.1231990251': whatsapp,
+      'entry.1624955372': instagram,
+      'entry.1763947025': automationGoal
+    };
+
+    for (const key in fields) {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = fields[key];
+      form.appendChild(input);
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
+
+    setTimeout(() => {
+      document.getElementById('mainContent').classList.add('hidden');
+      document.getElementById('confirmScreen').classList.add('active');
+      startCountdown();
+    }, 600);
+  }
+
+  function startCountdown() {
+    let count = 6;
+    const el = document.getElementById('countdownText');
+    const interval = setInterval(() => {
+      count--;
+      if (count <= 0) {
+        clearInterval(interval);
+        window.location.href = WHATSAPP_LINK;
+        return;
+      }
+      el.textContent = `Taking you there automatically in ${count}s...`;
+    }, 1000);
+  }
+</script>
+
+</body>
+</html>
